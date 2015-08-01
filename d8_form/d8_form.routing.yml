@@ -1,0 +1,9 @@
+
+d8_form.simple_form:
+  path: '/admin/config/d8_form/simple'
+  defaults:
+    _form: '\Drupal\d8_form\Form\SimpleForm'
+    _title: 'SimpleForm'
+  requirements:
+    _permission: 'access administration pages'
+
