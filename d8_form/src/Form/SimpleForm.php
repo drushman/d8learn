@@ -88,6 +88,11 @@ class SimpleForm extends ConfigFormBase {
       '#description' => $this->t('What\'s color do your like?'),
       '#default_value' => $config->get('color'),
     );
+    $form['hide_alter'] = array(
+      '#type' => 'checkbox',
+      '#title' => $this->t('Hide alter message'),
+      '#default_value' => $config->get('hide_alter'),
+    );
 
     return parent::buildForm($form, $form_state);
   }
@@ -119,6 +124,7 @@ class SimpleForm extends ConfigFormBase {
       ->set('give_your_gender', $form_state->getValue('give_your_gender'))
       ->set('give_your_age', $form_state->getValue('give_your_age'))
       ->set('color', $form_state->getValue('color'))
+      ->set('hide_alter', $form_state->getValue('hide_alter'))
       ->save();
   }
 
