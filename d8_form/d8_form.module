@@ -6,6 +6,7 @@
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Implements hook_help().
@@ -31,3 +32,18 @@ function d8_form_theme() {
 
   return $theme;
 }
+
+/**
+ * Implements hook_form_alter().
+ */
+function d8_form_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['alter_message'] = array(
+    '#type' => 'markup',
+    '#markup' => t('!form_id: Form is altered by !module', array('!form_id' => $form_id, '!module' => 'd8_form')),
+    '#prefix' => '<div class="messages messages--error">',
+    '#suffix' => '</div>',
+    '#weight' => -100
+  );
+}
+
+// For the other way we can use form_FORM_ID_alter().

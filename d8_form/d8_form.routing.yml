@@ -1,6 +1,6 @@
 
 d8_form.simple_form:
-  path: '/admin/config/d8_form/simple'
+  path: '/admin/config/simple'
   defaults:
     _form: '\Drupal\d8_form\Form\SimpleForm'
     _title: 'SimpleForm'
