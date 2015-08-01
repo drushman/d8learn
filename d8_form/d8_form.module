@@ -44,6 +44,27 @@ function d8_form_form_alter(&$form, FormStateInterface $form_state, $form_id) {
     '#suffix' => '</div>',
     '#weight' => -100
   );
+  
+  $form['#validate'][] = 'd8_form_validate_callback';
+  $form['#submit'][] = 'd8_form_submit_callback';
+}
+
+/**
+ * Form validate callback
+ * @param type $form
+ * @param FormStateInterface $form_state
+ */
+function d8_form_validate_callback($form, FormStateInterface $form_state) {
+  drupal_set_message('validate:' . __FUNCTION__);
+}
+
+/**
+ * Form submit callback
+ * @param type $form
+ * @param FormStateInterface $form_state
+ */
+function d8_form_submit_callback($form, FormStateInterface $form_state) {
+  drupal_set_message('submit:' . __FUNCTION__);
 }
 
 // For the other way we can use form_FORM_ID_alter().
